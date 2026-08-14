@@ -84,7 +84,3 @@ agent-direct/
 ```
 
 **Do not trust an AI-generated change because the agent says it is done. Make the change traceable, scoped, tested, reviewable, reversible, and understandable.**
-
-## Status
-
-Early public release. Feedback and real-world testing across different coding agents are welcome.
