@@ -17,7 +17,25 @@ Together they operationalize 15 habits for safer AI-assisted coding without tyin
 
 ## Install
 
-There is no package or universal CLI installer yet. Download or clone this repository, then copy the skill directories you want from [`skills/`](skills/) into the location your agent scans. Keep each directory intact so every skill still contains its own `SKILL.md`.
+### Install with the Skills CLI
+
+Install all four skills with [`skills`](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add parthchilwerwar/agent-direct --all
+```
+
+To preview the skills before installing them:
+
+```bash
+npx skills add parthchilwerwar/agent-direct --list
+```
+
+The CLI discovers `ai-context`, `ai-guardrails`, `ai-review`, and `ai-control` from this repository.
+
+### Install manually
+
+Download or clone this repository, then copy the skill directories you want from [`skills/`](skills/) into the location your agent scans. Keep each directory intact so every skill still contains its own `SKILL.md`.
 
 | Agent | Project or repository | Personal or global |
 |---|---|---|
