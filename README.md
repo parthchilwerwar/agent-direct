@@ -83,9 +83,6 @@ agent-direct/
         └── SKILL.md
 ```
 
-Each skill is self-contained and follows the Agent Skills directory convention: one skill directory with a `SKILL.md` containing YAML frontmatter plus the agent instructions.
-
-## Philosophy
 
 **Do not trust an AI-generated change because the agent says it is done. Make the change traceable, scoped, tested, reviewable, reversible, and understandable.**
 
