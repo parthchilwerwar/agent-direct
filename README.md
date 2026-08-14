@@ -17,23 +17,37 @@ Together they operationalize 15 habits for safer AI-assisted coding without tyin
 
 ## Install
 
-Using the `skills` CLI:
+There is no package or universal CLI installer yet. Download or clone this repository, then copy the skill directories you want from [`skills/`](skills/) into the location your agent scans. Keep each directory intact so every skill still contains its own `SKILL.md`.
 
-```bash
-npx skills add parthchilwerwar/agent-direct \
-  --skill ai-context \
-  --skill ai-guardrails \
-  --skill ai-review \
-  --skill ai-control
+| Agent | Project or repository | Personal or global |
+|---|---|---|
+| Codex CLI / IDE | `<repo>/.agents/skills/` | `~/.agents/skills/` |
+| Claude Code | `<repo>/.claude/skills/` | `~/.claude/skills/` |
+| Other Agent Skills-compatible tools | Use `.agents/skills/` when supported | Check that agent's skill-discovery documentation |
+
+For example, installing all four skills should produce:
+
+```text
+<skills-directory>/
+├── ai-context/
+│   └── SKILL.md
+├── ai-guardrails/
+│   └── SKILL.md
+├── ai-review/
+│   └── SKILL.md
+└── ai-control/
+    └── SKILL.md
 ```
 
-Install only one skill:
+Restart or refresh your agent if the skills do not appear immediately.
 
-```bash
-npx skills add parthchilwerwar/agent-direct --skill ai-review
-```
+### ChatGPT
 
-Or copy any directory under `skills/` into the skills location supported by your agent.
+Do not copy these files into `.chatgpt/skills/`; OpenAI does not document that as a local skill-discovery path. Standalone skills are available in the ChatGPT desktop app through its **Skills** interface. For ChatGPT on the web or mobile, this repository would need to be distributed as a plugin.
+
+Codex installations may also discover personal skills from `~/.codex/skills/`. Current OpenAI documentation lists `.agents/skills/` as the portable repository and personal location.
+
+See the official [OpenAI skill guide](https://learn.chatgpt.com/docs/build-skills) and [Claude Agent Skills guide](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) for current platform-specific details.
 
 ## Repository layout
 
