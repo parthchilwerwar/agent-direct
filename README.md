@@ -1,12 +1,12 @@
 # agent-direct
 
-Four portable Agent Skills for keeping AI-assisted coding understandable, scoped, verifiable, and resumable.
+Four portable Agent Skills for keeping AI-assisted coding scoped, verifiable, and resumable.
 
-AI agents can move fast. This repo keeps the human in control of **context, boundaries, review, and handoff** — instead of blindly approving whatever the agent did.
+Most agent failures aren't bad code — they're a human who stopped checking the diff. These four skills make scoped and resumable the default, instead of something you have to remember to set up.
 
-## Why skills, not one giant system prompt
+## Why skills instead of one big system prompt
 
-A single mega-prompt grows unreadable and hard to maintain. Skills are small, portable folders — you load only what a task needs, and each concern (context, guardrails, review, control) can be inspected, versioned, and updated on its own.
+A single mega-prompt turns into a wall of text nobody wants to touch. Skills are small, portable folders — an agent only loads the one that matches what you're doing, and each concern (context, guardrails, review, control) can be edited on its own without breaking the rest. The description line does most of the work here: it's the only thing an agent sees before deciding to load a skill, so keeping each one narrow is what stops them from colliding.
 
 ## Skills
 
@@ -17,7 +17,7 @@ A single mega-prompt grows unreadable and hard to maintain. Skills are small, po
 | [`ai-review`](skills/ai-review/SKILL.md) | Plan-first reasoning, one logical change at a time, and full diff review |
 | [`ai-control`](skills/ai-control/SKILL.md) | Session handoffs backed by an append-only JSONL approval log, model/context provenance, and the human mental-model gate |
 
-Together they operationalize 15 habits for safer AI-assisted coding — without locking you into one model or one coding agent.
+Together they cover 15 habits for safer AI-assisted coding, without tying you to one model or one coding agent.
 
 ## Install
 
@@ -33,11 +33,11 @@ Preview before installing:
 npx skills add parthchilwerwar/agent-direct --list
 ```
 
-The CLI discovers `ai-context`, `ai-guardrails`, `ai-review`, and `ai-control` directly from this repo.
+The CLI picks up `ai-context`, `ai-guardrails`, `ai-review`, and `ai-control` directly from this repo.
 
 ### Manual install
 
-Clone or download this repo, then copy the skill folders you want from [`skills/`](skills/) into the location your agent scans. Keep each folder intact — every skill needs its own `SKILL.md`.
+Clone or download the repo, then copy the skill folders you want from [`skills/`](skills/) into wherever your agent scans for skills. Keep each folder intact — every skill needs its own `SKILL.md`.
 
 | Agent | Project / repo | Personal / global |
 |---|---|---|
@@ -64,7 +64,6 @@ Installing all four should produce:
 ```
 
 Restart or refresh your agent if the skills don't show up right away.
-
 
 ## Repository layout
 
