@@ -2,11 +2,11 @@
 
 Four portable Agent Skills for keeping AI-assisted coding understandable, scoped, verifiable, and resumable.
 
-AI agents can move fast. The point of this repo is to keep the human in control of **context, boundaries, review, and handoff** instead of blindly approving changes.
+AI agents can move fast. This repo keeps the human in control of **context, boundaries, review, and handoff** — instead of blindly approving whatever the agent did.
 
-## Why skills, not one big system prompt
+## Why skills, not one giant system prompt
 
-Separate skills let you load the guidance needed for a task and maintain each workflow independently. Small, portable folders make context, guardrails, review, and session control easier to inspect and update without rewriting a single large system prompt.
+A single mega-prompt grows unreadable and hard to maintain. Skills are small, portable folders — you load only what a task needs, and each concern (context, guardrails, review, control) can be inspected, versioned, and updated on its own.
 
 ## Skills
 
@@ -15,39 +15,37 @@ Separate skills let you load the guidance needed for a task and maintain each wo
 | [`ai-context`](skills/ai-context/SKILL.md) | Handover state, decisions, inline intent, execution flow, and bug/feature traces |
 | [`ai-guardrails`](skills/ai-guardrails/SKILL.md) | Architecture, constraints, verification evidence, and rollback planning |
 | [`ai-review`](skills/ai-review/SKILL.md) | Plan-first reasoning, one logical change at a time, and full diff review |
-| [`ai-control`](skills/ai-control/SKILL.md) | Session handoffs with an append-only JSONL approval/resume artifact, model/context provenance, and the human mental-model gate |
+| [`ai-control`](skills/ai-control/SKILL.md) | Session handoffs backed by an append-only JSONL approval log, model/context provenance, and the human mental-model gate |
 
-Together they operationalize 15 habits for safer AI-assisted coding without tying the workflow to one model or coding agent.
+Together they operationalize 15 habits for safer AI-assisted coding — without locking you into one model or one coding agent.
 
 ## Install
 
-### Install with the Skills CLI
-
-Install all four skills with [`skills`](https://github.com/vercel-labs/skills):
+### Skills CLI
 
 ```bash
 npx skills add parthchilwerwar/agent-direct --all
 ```
 
-To preview the skills before installing them:
+Preview before installing:
 
 ```bash
 npx skills add parthchilwerwar/agent-direct --list
 ```
 
-The CLI discovers `ai-context`, `ai-guardrails`, `ai-review`, and `ai-control` from this repository.
+The CLI discovers `ai-context`, `ai-guardrails`, `ai-review`, and `ai-control` directly from this repo.
 
-### Install manually
+### Manual install
 
-Download or clone this repository, then copy the skill directories you want from [`skills/`](skills/) into the location your agent scans. Keep each directory intact so every skill still contains its own `SKILL.md`.
+Clone or download this repo, then copy the skill folders you want from [`skills/`](skills/) into the location your agent scans. Keep each folder intact — every skill needs its own `SKILL.md`.
 
-| Agent | Project or repository | Personal or global |
+| Agent | Project / repo | Personal / global |
 |---|---|---|
 | Codex CLI / IDE | `<repo>/.agents/skills/` | `~/.agents/skills/` |
 | Claude Code | `<repo>/.claude/skills/` | `~/.claude/skills/` |
-| Other Agent Skills-compatible tools | Use `.agents/skills/` when supported | Check that agent's skill-discovery documentation |
+| Other Agent Skills-compatible tools | Use `.agents/skills/` when supported | Check that agent's own skill-discovery docs |
 
-For example, installing all four skills should produce:
+Installing all four should produce:
 
 ```text
 <skills-directory>/
@@ -65,15 +63,8 @@ For example, installing all four skills should produce:
     └── CHANGELOG.md
 ```
 
-Restart or refresh your agent if the skills do not appear immediately.
+Restart or refresh your agent if the skills don't show up right away.
 
-### ChatGPT
-
-Do not copy these files into `.chatgpt/skills/`; OpenAI does not document that as a local skill-discovery path. Standalone skills are available in the ChatGPT desktop app through its **Skills** interface. For ChatGPT on the web or mobile, this repository would need to be distributed as a plugin.
-
-Codex installations may also discover personal skills from `~/.codex/skills/`. Current OpenAI documentation lists `.agents/skills/` as the portable repository and personal location.
-
-See the official [OpenAI skill guide](https://learn.chatgpt.com/docs/build-skills) and [Claude Agent Skills guide](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) for current platform-specific details.
 
 ## Repository layout
 
