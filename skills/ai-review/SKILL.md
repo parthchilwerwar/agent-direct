@@ -139,6 +139,8 @@ Scope rules:
 
 Never accept a change based only on the agent's summary. Read the actual diff line by line, regardless of how small the request seemed.
 
+A diff is not "reviewed" until checked against the `ai-control` JSONL approval artifact's evidence, scope, constraints, and recorded changes; if no artifact exists, explicitly report a legacy/standalone review with unverified historical approvals and verify current authorization independently instead of claiming artifact-backed review.
+
 Review all of the following:
 
 - Modified, added, deleted, renamed, and untracked files
