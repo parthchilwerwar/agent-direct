@@ -4,6 +4,10 @@ Four portable Agent Skills for keeping AI-assisted coding understandable, scoped
 
 AI agents can move fast. The point of this repo is to keep the human in control of **context, boundaries, review, and handoff** instead of blindly approving changes.
 
+## Why skills, not one big system prompt
+
+Separate skills let you load the guidance needed for a task and maintain each workflow independently. Small, portable folders make context, guardrails, review, and session control easier to inspect and update without rewriting a single large system prompt.
+
 ## Skills
 
 | Skill | Use it for |
@@ -11,7 +15,7 @@ AI agents can move fast. The point of this repo is to keep the human in control 
 | [`ai-context`](skills/ai-context/SKILL.md) | Handover state, decisions, inline intent, execution flow, and bug/feature traces |
 | [`ai-guardrails`](skills/ai-guardrails/SKILL.md) | Architecture, constraints, verification evidence, and rollback planning |
 | [`ai-review`](skills/ai-review/SKILL.md) | Plan-first reasoning, one logical change at a time, and full diff review |
-| [`ai-control`](skills/ai-control/SKILL.md) | Session handoffs, model/context provenance, and the human mental-model gate |
+| [`ai-control`](skills/ai-control/SKILL.md) | Session handoffs with an append-only JSONL approval/resume artifact, model/context provenance, and the human mental-model gate |
 
 Together they operationalize 15 habits for safer AI-assisted coding without tying the workflow to one model or coding agent.
 
@@ -48,13 +52,17 @@ For example, installing all four skills should produce:
 ```text
 <skills-directory>/
 ├── ai-context/
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── CHANGELOG.md
 ├── ai-guardrails/
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── CHANGELOG.md
 ├── ai-review/
-│   └── SKILL.md
+│   ├── SKILL.md
+│   └── CHANGELOG.md
 └── ai-control/
-    └── SKILL.md
+    ├── SKILL.md
+    └── CHANGELOG.md
 ```
 
 Restart or refresh your agent if the skills do not appear immediately.
@@ -74,11 +82,15 @@ agent-direct/
 ├── README.md
 └── skills/
     ├── ai-context/
-    │   └── SKILL.md
+    │   ├── SKILL.md
+    │   └── CHANGELOG.md
     ├── ai-guardrails/
-    │   └── SKILL.md
+    │   ├── SKILL.md
+    │   └── CHANGELOG.md
     ├── ai-review/
-    │   └── SKILL.md
+    │   ├── SKILL.md
+    │   └── CHANGELOG.md
     └── ai-control/
-        └── SKILL.md
+        ├── SKILL.md
+        └── CHANGELOG.md
 ```
