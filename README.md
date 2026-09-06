@@ -82,5 +82,3 @@ agent-direct/
     └── ai-control/
         └── SKILL.md
 ```
-
-**Do not trust an AI-generated change because the agent says it is done. Make the change traceable, scoped, tested, reviewable, reversible, and understandable.**
