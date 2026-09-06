@@ -128,6 +128,12 @@ Enforcement rules:
 - An indirect workaround that violates the effect of a rule is still a violation.
 - Add new constraints only when the project owner confirms them or the higher-priority instruction already establishes them.
 
+### Scope Boundaries: Secrets and Credentials
+
+Deny agent access to secrets and credentials files by default, including `.env`, `.env.*`, `*.pem`, `*.key`, `credentials.json`, and credential stores such as `.aws/credentials` and `.ssh/`. Do not read, search contents, copy, modify, or expose them through tools, recursive scans, logs, diffs, or the approval artifact. Exclude these paths before broad content searches; do not follow symlinks to bypass the boundary.
+
+Only a human's explicit scope-widening authorization for the current session may allow named paths and actions, subject to higher-priority restrictions. A general implementation request, guardrail pass, or approval from a previous session is insufficient. Record the authorizing message, exact scope, and session expiry in the `ai-control` artifact's constraint snapshot and approval event when that artifact is in use; otherwise retain the original authorization reference in the session record. Never store secret values in that record. Templates matching these patterns (for example `.env.example`) remain excluded unless the human explicitly includes them for this session.
+
 ## Habit 8: Use a Concrete Test Checklist
 
 A change counts as verified only when the required checks were actually run and their real outcomes were inspected.
